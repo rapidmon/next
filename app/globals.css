@@ -4,6 +4,15 @@ body{
   color: white;
 }
 
+ol,ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
 .title{
   text-align: center;
   margin-top: 150px;
@@ -37,3 +46,22 @@ body{
   bottom: 0;
   color: black;
 }
+
+.food-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-img{
+  width: 100%;
+  height: auto;
+}
+
+.cart-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  line-height: 0px;
+} 
