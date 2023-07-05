@@ -11,11 +11,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="navbar">
-          <Link href="/">home</Link>
-          <Link href="/list">list페이지</Link>
-          <Link href="/cart">cart페이지</Link>
+          <Link href="/">홈</Link>
+          <Link href="/list">가판대</Link>
+          <Link href="/cart">카트</Link>
           <Link href="/board">게시판</Link>
-          <Link href="/list/detail">list 상세페이지</Link>
         </div>
         {children}
       </body>
