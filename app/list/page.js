@@ -18,11 +18,13 @@ export default function List() {
             <h4 className="title">상품목록</h4>
             <ul className="food-list">
                 {product.map((v, index) => (
-                    <li onClick={() => router?.push('/list/detail')} key={index} className="food">
+                    <li key={index} className="food">
                         {/* 이미지 최적화는 제일 나중에. Image태그로 바꾸는 건 나중에 하는 게 좋음. */}
-                        <Image className="food-img" src={food_img[index]} alt={`${product[index]} image`}/>
-                        <h4>{v} {price[index]}</h4>
-                        <span>{num[index]}</span>
+                        <div onClick={() => router?.push('/list/detail')}>
+                            <Image className="food-img" src={food_img[index]} alt={`${product[index]} image`}/>
+                            <h4>{v} {price[index]}</h4>
+                            <span>{num[index]}</span>
+                        </div> 
                         <button onClick={()=>{setNum(num = num.map((v, i) => {if(i === index){return v+1}else{return v}}))}}>+</button>
                         <button onClick={()=>{setNum(num = num.map((v, i) => {if(i === index){if(v === 0){return v}else{return v-1}}else{return v}}))}}>-</button>
                     </li>
