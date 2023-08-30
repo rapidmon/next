@@ -1,12 +1,4 @@
-import { connectDB } from "@/util/database";
-
-export default async function Home() {
-
-  const client = await connectDB;
-  const db = client.db('Next')
-  let result = await db.collection('post').find().toArray();
-  console.dir(result[0].title);
-
+export default function Home() {
   let name = "heelae"
   return (
     <main>

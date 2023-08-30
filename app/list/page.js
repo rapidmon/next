@@ -5,8 +5,11 @@ import food1 from "../../public/food1.png";
 import food2 from "../../public/food2.png";
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
+// import handler from "@/util/data";
 
 export default function List() {
+    // let data = handler;
+    // console.log(data);
     let product = ['tomato', 'pasta', 'coconut'];
     let price = ['$3', '$15', '$5'];
     let food_img = [food0, food1, food2];
