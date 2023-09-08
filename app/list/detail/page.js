@@ -1,13 +1,9 @@
-export default function Detail() {
-    return (
+export default function Detail(){
+    return(
         <div>
-            <h4 className="title">상품목록 상세</h4>
-            <div className="food">
-                <h4>상품명 $40</h4>
-            </div>
-            <div className="food">
-                <h4>상품명 $40</h4>
-            </div>
+            <h4>상세페이지</h4>
+            <h4>글제목</h4>
+            <p>글내용</p>
         </div>
     )
 }
