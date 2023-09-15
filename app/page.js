@@ -16,10 +16,15 @@ export default async function Home() {
             <Link prefetch={false} href={'/board/' + v._id}>
               <h4>{v.name}</h4>
             </Link>
+            <Link href={'/edit/' + v._id}>수정</Link>
             <p>{v.price}</p>
+            <form action="/api/delete/delete" method="POST">
+              <input type="hidden" name="id" value={v._id.toString()} />
+              <button type="submit" className="delete-btn">삭제</button>
+            </form>
           </div>
         ))}
-      </div>
+      </div> 
     </main>
   )
 }

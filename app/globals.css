@@ -51,11 +51,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .food-img{
   width: 100%;
-  height: auto;
+  height: 200px;
 }
 
 .cart-item {
@@ -69,13 +71,23 @@ a {
 .list-bg {
   background: rgb(249, 250, 255);
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
 }
 .list-item {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 5px;
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
 }
 .list-item h4 {
   color: black;
@@ -86,4 +98,10 @@ a {
 .list-item p {
   color: grey;
   margin : 5px 0px;
-} 
+}
+
+.delete-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
