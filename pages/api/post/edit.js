@@ -19,7 +19,7 @@ export default async function handler(req, res) {
                 }
             });
     
-            return res.status(201).redirect('/');
+            return res.status(201).redirect('/list');
         } catch (error) {
             return error;
         }

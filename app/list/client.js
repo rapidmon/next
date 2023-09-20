@@ -4,20 +4,39 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
 
-export default function ListClient({product}) {
+export default function ListClient({product, product_id}) {
     let [num, setNum] = useState(0);
-    const router = typeof window !== 'undefined' ? useRouter() : null;
+    const router = useRouter();
 
     return (
-        <li className="food">
-            {/* 이미지 최적화는 제일 나중에. Image태그로 바꾸는 건 나중에 하는 게 좋음. */}
-            <div onClick={() => router?.push('/list/detail')}>
-                <Image className="food-img" width={500} height={500} src={product.image} alt={`${product.name} image`}/>
-                <h4>{product.name} {product.price}</h4>
-                <span>{num}</span>
-            </div> 
-            {/* <button onClick={()=>{setNum(num = num.map((v, i) => {if(i === index){return v+1}else{return v}}))}}>+</button>
-            <button onClick={()=>{setNum(num = num.map((v, i) => {if(i === index){if(v === 0){return v}else{return v-1}}else{return v}}))}}>-</button> */}
-        </li>
+        <div>
+            <Image onClick={() => router.push('/list/detail')} className="food-img" width={500} height={500} src={product.image} alt={`${product.name} image`}/>
+            <h4>{product.name} {product.price}</h4>
+            <span>{num}</span>
+            <button onClick={(e) => {
+                fetch('/api/delete/delete', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'  // 이 부분을 추가하여 JSON 형식임을 알립니다.
+                    },
+                    body: JSON.stringify({
+                        id: product_id,
+                        url: product.deleteImage
+                    })
+                })
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error("failed to delete");
+                    } else {
+                        alert("삭제 완료")
+                        e.target.parentElement.parentElement.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert("삭제 중 오류가 발생했습니다.");
+                });
+            }} type="button" className="delete-btn">삭제</button>
+        </div>
     )
 }

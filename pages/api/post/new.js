@@ -18,10 +18,9 @@ export default async function handler(req, res) {
             return res.status(500).json("The product is in use. Please write a different product name");
         }
         try {
-            console.log(req.body);
             await db.collection('post').insertOne(req.body);
     
-            return res.status(201).redirect('/');
+            return res.status(201).redirect('/list');
         } catch (error) {
             return error;
         }
